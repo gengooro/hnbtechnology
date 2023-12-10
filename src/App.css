@@ -11,7 +11,9 @@ html {
 }
 
 :root {
+  color-scheme: light only;
   --cream-color: rgb(254 252 232 / 1);
+
 }
 
 .thecontainer {
@@ -28,6 +30,7 @@ html {
   background-image: url('./assets/images/image.png');
   object-fit: cover;
 }
+
 
 .contactpage-bg {
   background-image: url('./assets/images/contact2.png');

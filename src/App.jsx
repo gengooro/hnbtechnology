@@ -4,23 +4,34 @@ import HeroImg from "./assets/images/hero-img.svg";
 import { useRef } from "react";
 
 const App = () => {
-  const homesection = useRef();
-  const aboutsection = useRef();
-  const contactsection = useRef();
+  // const homesection = useRef();
+  // const aboutsection = useRef();
+  // const contactsection = useRef();
 
-  const scrollHnlder = (element) => {
-    window.scrollTo({ top: element.current.offsetTop, behavior: "smooth" });
+  const ref = useRef(null);
+
+  const handleScroll = () => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  // const scrollHnlder = (element) => {
+  //   window.scrollTo({ top: element.current.offsetTop, behavior: "smooth" });
+  // };
 
   return (
     <div className="thecontainer">
       <section
-        ref={homesection}
         id="home"
         className="homepage-bg selection:bg-yellow-100 selection:text-black w-screen h-screen"
       >
-        <div className="homepage w-screen h-full flex gap-5 flex-col">
-          <div className="navbar-wrapper pt-4 absolute top-4 w-full">
+        <div className="homepage w-screen h-full py-5 flex gap-5 flex-col">
+          <div className="heading w-full h-1/4 flex flex-col justify-center items-center">
+            <img src={Logo} alt="logo" />
+            <h3 className="text-2xl font-semibold">
+              ‘’Simply meet expectations’’
+            </h3>
+          </div>
+          {/* <div className="navbar-wrapper pt-4 absolute top-4 w-full">
             <div className="navbar flex justify-between items-center text-black">
               <h3 className="text-2xl font-bold">DH TECHNOLOGY</h3>
               <div className="link-wrapper">
@@ -49,8 +60,8 @@ const App = () => {
                 </ul>
               </div>
             </div>
-          </div>
-          <div className="hero w-full min-h-full flex justify-center items-center">
+          </div> */}
+          <div className="hero w-full h-full flex justify-center items-center">
             <div className="hero-left flex flex-col items-center gap-6">
               <p>
                 HNB Technology is able to handle different networks from the
@@ -65,7 +76,7 @@ const App = () => {
                 and diverse customer base.
               </p>
               <div className="hero-button">
-                <button>CONTACT US</button>
+                <button onClick={handleScroll}>CONTACT US</button>
               </div>
             </div>
             <div className="hero-right">
@@ -76,7 +87,6 @@ const App = () => {
       </section>
 
       <section
-        ref={aboutsection}
         id="about"
         className="aboutpage selection:bg-yellow-100  selection:text-black text-black h-screen py-18"
       >
@@ -120,7 +130,7 @@ const App = () => {
       </section>
 
       <section
-        ref={contactsection}
+        ref={ref}
         id="contact"
         className="contactpage-bg selection:bg-purple-500 selection:text-white w-screen text-white"
       >
@@ -128,16 +138,7 @@ const App = () => {
           <div className="contact-heading">
             <h1>CONTACT PAGE</h1>
           </div>
-          <div className="contact-map flex-grow w-full">
-            <iframe
-              title="Example Iframe"
-              width="100%"
-              height="400"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235.48117813663785!2d73.19879510066136!3d19.20835137678243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7939dec4531a5%3A0xef454edbf5b8f310!2sHNB%20Technology!5e0!3m2!1sen!2sin!4v1702133325027!5m2!1sen!2sin"
-              loading="lazy"
-              allowFullScreen
-            ></iframe>
-          </div>
+
           <div className="contact-details w-full flex-grow">
             <div className="contact-form w-full flex justify-evenly items-center">
               <div className="contact-types flex flex-col items-center">
@@ -176,6 +177,16 @@ const App = () => {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="contact-map flex-grow w-full">
+            <iframe
+              title="Example Iframe"
+              width="100%"
+              height="400"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235.48117813663785!2d73.19879510066136!3d19.20835137678243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7939dec4531a5%3A0xef454edbf5b8f310!2sHNB%20Technology!5e0!3m2!1sen!2sin!4v1702133325027!5m2!1sen!2sin"
+              loading="lazy"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
       </section>
